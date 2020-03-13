@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# author:  Bas Huis
+# website: https://github.com/bas080/bash-snapshot
+# created: Thu Mar 12 18:45:42 CET 2020
+# changed: Thu Mar 12 18:41:59 CET 2020
+# license: GNU General Public License 3.0
+
+snapshot_cmp="cmp"
+
+snapshot() {
+  [ -z "$SNAPSHOT" ] || {
+    cp "$1" "$2"
+    return
+  }
+
+  "$snapshot_cmp" "$1" "$2"
+}
